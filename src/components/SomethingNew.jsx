@@ -40,7 +40,7 @@ function SomethingNew() {
 
   return (
   
-    <TitleStyle>
+    <Wrapper>
       <h2>
         Something New
       </h2>
@@ -57,36 +57,36 @@ function SomethingNew() {
 
           return(
             <SplideSlide key={recipe.id}>
-              <RecipeHolder>
+              <Card>
                 
                 <p>
                   {recipe.title}
                 </p>
 
                 <img src={recipe.image} alt="{recipe.title}" />
-                <GradientLayer />
-              </RecipeHolder>
+                <Gradient />
+              </Card>
             </SplideSlide>
           )
         })}
       </Splide>
-    </TitleStyle>
+    </Wrapper>
 
     
   )
 }
 
-const TitleStyle = styled.div`
+const Wrapper = styled.div`
 margin: 5rem 0rem; `
 
-const GradientLayer = styled.div`
+const Gradient = styled.div`
 z-index: 3;
 position:absolute;
 height:100%;
 width:100%;
 background:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.75))`
 
-const RecipeHolder = styled.div`
+const Card = styled.div`
 min-height: 15rem;
 border-radius: 2rem;
 overflow: hidden;
