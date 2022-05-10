@@ -1,8 +1,9 @@
 import React from "react";
-import Pages from "./pages/Pages";
+import Index from "./routes/Index";
 import Category from "./components/Category";
 import Search from "./components/Search";
 import {BrowserRouter} from 'react-router-dom'
+
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Search />
         <Category />
-        <Pages />
+        <Index />
       </BrowserRouter>
     </div>
   );

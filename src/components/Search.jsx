@@ -1,16 +1,22 @@
 
 
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import {RiSearchLine} from 'react-icons/ri'
 
 function Search() {
     const [value, setValue] = useState("")
+    const nav = useNavigate();
+    const submitHandler = (e) => {
+        e.preventDefault();
+        nav('/input/'+value)
+    }
   return (
-    <FormStyle>
+    <FormStyle onSubmit={submitHandler}>
         <div>
             <RiSearchLine></RiSearchLine>
-            <input type="text" />
+            <input onChange={(e) => setValue(e.target.value)} type="text" value={value}/>
         </div>
     </FormStyle>
   )
