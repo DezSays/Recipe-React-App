@@ -1,23 +1,65 @@
 
 
 import React from 'react'
-import { FaPizzaSlice } from "react-icons/fa";
-import { GiTacos, GiChopsticks, GiChickenLeg } from "react-icons/gi";
+import { FaPizzaSlice, FaHome } from "react-icons/fa";
+import { GiTacos, GiChopsticks, GiChickenLeg, GiHamburger, GiChefToque, GiCookie, GiRoastChicken, GiHotSpices, GiCoolSpices, GiFriedFish, GiSushis } from "react-icons/gi";
 import styled from "styled-components";
 import {NavLink} from "react-router-dom"
 
 
 
 function Category() {
-  return (
+  return (<>
   <List>    
+  <SLink to={'/'}>
+        <FaHome />
+        <h4>Home</h4>
+    </SLink>
+    </List>
+    <List>
   <SLink to={'/cuisine/Italian'}>
         <FaPizzaSlice />
         <h4>Italian</h4>
     </SLink>
+  <SLink to={'/cuisine/Cajun'}>
+        <GiHotSpices />
+        <h4>Cajun</h4>
+    </SLink>
+  <SLink to={'/cuisine/Japanese'}>
+        <GiSushis />
+        <h4>Japanese</h4>
+    </SLink>
+  <SLink to={'/cuisine/Caribbean'}>
+        <GiFriedFish />
+        <h4>Caribbean</h4>
+    </SLink>
+    </List>
+    <List>
+  <SLink to={'/cuisine/Nordic'}>
+        <GiCoolSpices />
+        <h4>Nordic</h4>
+    </SLink>
+  <SLink to={'/cuisine/British'}>
+        <GiCookie />
+        <h4>British</h4>
+    </SLink>
+  <SLink to={'/cuisine/African'}>
+        <GiRoastChicken />
+        <h4>African</h4>
+    </SLink>
     <SLink to={'/cuisine/Southern'}>
         <GiChickenLeg />
         <h4>Southern</h4>
+    </SLink>
+    </List>
+    <List>
+    <SLink to={'/cuisine/American'}>
+        <GiHamburger />
+        <h4>American</h4>
+    </SLink>
+    <SLink to={'/cuisine/French'}>
+        <GiChefToque />
+        <h4>French</h4>
     </SLink>
     <SLink to={'/cuisine/Chinese'}>
         <GiChopsticks />
@@ -28,7 +70,7 @@ function Category() {
         <h4>Mexican</h4>
     </SLink>
     </List>
-
+    </>
   );
 }
 

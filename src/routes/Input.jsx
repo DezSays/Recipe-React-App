@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import styled from 'styled-components';
 import {useParams} from 'react-router-dom';
 import {key} from '../.secrets/keys'
-import Link from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 function Input() {

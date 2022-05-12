@@ -2,38 +2,52 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {key} from '../.secrets/keys'
 import { useParams } from 'react-router-dom';
+import { addToFav } from '../actions/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Recipe = () => {
 
     let params = useParams(); 
     const [description, setDescription] = useState({})
     const [activeTab, setActiveTab] = useState("Instructions")
+    const dispatch = useDispatch()
+    
+    // const actions = useSelector(state => state.favorites)
+    
+    useEffect(() => {
+        recipeDescription()
+    },[params.id])
 
     const recipeDescription = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${key}`)
         const details = await data.json()
         setDescription(details)
     };
+    const handleAddToFavs = () =>{
+        
+        dispatch(addToFav(description))
+        
+    }
 
-    useEffect(() => {
-        recipeDescription()
-    },[params.id])
+
   return (
     <DetailWrapper>
         <div>
             <h2>{description.title}</h2>
             <img src={description.image} alt="" />
         </div>
+        
         <Info>
             <Button className={activeTab === 'Instructions' ? 'active' : ''} onClick={() => setActiveTab("Instructions")}>Instructions</Button>
-            <Button className={activeTab === 'Instructions' ? 'active' : ''}onClick={() => setActiveTab("Ingredients")}>Ingredients</Button>
+            <Button className={activeTab === 'Ingredients' ? 'active' : ''}onClick={() => setActiveTab("Ingredients")}>Ingredients</Button>
+            <Button className={activeTab === 'Add to Favorites' ? 'active' : ''} onClick={()=> handleAddToFavs()}>Add to Favorites</Button>
             {activeTab === 'Instructions' && (
 
             
             <div>
-                <h3 dangerouslySetInnerHTML={{__html: description.summary}}></h3>
+                <h4 dangerouslySetInnerHTML={{__html: description.summary}}></h4>
 
-                <h3 dangerouslySetInnerHTML={{__html: description.instructions}}></h3>
+                <h4 dangerouslySetInnerHTML={{__html: description.instructions}}></h4>
             </div>
             )}
             {activeTab === "Ingredients" && (
@@ -41,10 +55,12 @@ const Recipe = () => {
             
             <ul>
                 {description.extendedIngredients.map((ingredient) => (
-                    <li key={ingredient.id}>{ingredient.original}</li>
+                    <li key={ingredient.id}><h4>{ingredient.original}</h4></li>
                 ))}
             </ul>
             )}
+
+
         </Info>
     </DetailWrapper>
   )
