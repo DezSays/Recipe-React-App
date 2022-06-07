@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { FaPizzaSlice, FaHome } from "react-icons/fa";
-import { GiTacos, GiChopsticks, GiChickenLeg, GiHamburger, GiChefToque, GiCookie, GiRoastChicken, GiHotSpices, GiCoolSpices, GiFriedFish, GiSushis } from "react-icons/gi";
+import { GiTacos, GiChopsticks, GiChickenLeg, GiHamburger, GiChefToque, GiCookie, GiRoastChicken, GiHotSpices, GiCoolSpices, GiFriedFish} from "react-icons/gi";
 import styled from "styled-components";
 import {NavLink} from "react-router-dom"
 
@@ -10,13 +10,13 @@ import {NavLink} from "react-router-dom"
 
 function Category() {
   return (<>
+  <br/>
+  <br/>
   <List>    
   <SLink to={'/'}>
         <FaHome />
         <h4>Home</h4>
     </SLink>
-    </List>
-    <List>
   <SLink to={'/cuisine/Italian'}>
         <FaPizzaSlice />
         <h4>Italian</h4>
@@ -25,10 +25,7 @@ function Category() {
         <GiHotSpices />
         <h4>Cajun</h4>
     </SLink>
-  <SLink to={'/cuisine/Japanese'}>
-        <GiSushis />
-        <h4>Japanese</h4>
-    </SLink>
+
   <SLink to={'/cuisine/Caribbean'}>
         <GiFriedFish />
         <h4>Caribbean</h4>
@@ -65,9 +62,9 @@ function Category() {
         <GiChopsticks />
         <h4>Chinese</h4>
     </SLink>
-    <SLink to={'/cuisine/Mexican'}>
+    <SLink to={'/cuisine/Spanish'}>
         <GiTacos />
-        <h4>Mexican</h4>
+        <h4>Spanish</h4>
     </SLink>
     </List>
     </>
@@ -93,15 +90,18 @@ width: 6rem;
 height: 6rem;
 cursor: pointer;
 transform: scale(0.8);
+margin-top:2.5rem;
 
 h4{
     color: white;
     font-size: 0.8rem;
+    
 }
 
 svg{
     color: white;
     font-size: 1.5rem;
+    
 }
 &.active{
     background: linear-gradient(to right, #6bbf59, #08a045);
